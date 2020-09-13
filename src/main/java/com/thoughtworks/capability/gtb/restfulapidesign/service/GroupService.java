@@ -16,4 +16,12 @@ public class GroupService {
         return groupRepository.findAll();
     }
 
+    public Group updateGroupName(int id, Group group) {
+        Group target = groupRepository.findById(id);
+        if (target != null) {
+            target.setName(group.getName());
+            return target;
+        }
+        return null;
+    }
 }

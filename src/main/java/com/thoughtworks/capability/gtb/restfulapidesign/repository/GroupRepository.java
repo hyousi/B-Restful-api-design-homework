@@ -43,4 +43,8 @@ public class GroupRepository {
 
         return groups;
     }
+
+    public Group findById(int id) {
+        return groups.stream().filter(group -> group.getId() == id).findAny().orElse(null);
+    }
 }
