@@ -28,4 +28,8 @@ public class StudentService {
 
         return studentRepository.findAllByGender(gender);
     }
+
+    public Student update(int id, Student student) {
+        return studentRepository.updateById(id, student);
+    }
 }

@@ -44,4 +44,10 @@ public class StudentRepository {
     public int size() {
         return students.size();
     }
+
+    public Student updateById(int id, Student student) {
+        deleteById(id);
+        students.add(student);
+        return student;
+    }
 }
