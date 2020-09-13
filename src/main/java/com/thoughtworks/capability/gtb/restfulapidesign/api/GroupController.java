@@ -18,12 +18,17 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-    @GetMapping("/api/groups")
-    public List<Group> getGroups() {
-        return groupService.getGroups();
+    @GetMapping("/groups")
+    public List<Group> getAll() {
+        return groupService.getAll();
     }
 
-    @PatchMapping("/api/groups/{id}")
+    @GetMapping("/groups/{id}")
+    public Group get(@PathVariable int id) {
+        return groupService.get(id);
+    }
+
+    @PatchMapping("/groups/{id}")
     public Group updateGroupName(@PathVariable int id, @RequestBody Group group) {
         return groupService.updateGroupName(id, group);
     }

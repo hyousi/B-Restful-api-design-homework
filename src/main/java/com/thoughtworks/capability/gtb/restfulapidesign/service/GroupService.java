@@ -12,7 +12,7 @@ public class GroupService {
     @Autowired
     GroupRepository groupRepository;
 
-    public List<Group> getGroups() {
+    public List<Group> getAll() {
         return groupRepository.findAll();
     }
 
@@ -23,5 +23,9 @@ public class GroupService {
             return target;
         }
         return null;
+    }
+
+    public Group get(int id) {
+        return groupRepository.findById(id);
     }
 }
