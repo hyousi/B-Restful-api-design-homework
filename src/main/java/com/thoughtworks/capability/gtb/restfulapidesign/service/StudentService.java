@@ -1,7 +1,9 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.service;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
+import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student.Gender;
 import com.thoughtworks.capability.gtb.restfulapidesign.repository.StudentRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,13 @@ public class StudentService {
 
     public void remove(int id) {
         studentRepository.deleteById(id);
+    }
+
+    public List<Student> getAll(Gender gender) {
+        if (gender == null) {
+            return studentRepository.findAll();
+        }
+
+        return studentRepository.findAllByGender(gender);
     }
 }

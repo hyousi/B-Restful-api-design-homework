@@ -19,7 +19,7 @@ public class Student {
 
     private String note;
 
-    private enum Gender {
+    public enum Gender {
         MALE, FEMALE
     }
 
