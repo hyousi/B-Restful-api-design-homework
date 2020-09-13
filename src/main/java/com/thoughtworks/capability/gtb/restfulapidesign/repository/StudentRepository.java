@@ -19,6 +19,15 @@ public class StudentRepository {
         students.add(student);
     }
 
+    public void deleteById(int id) {
+        Student student = findById(id);
+        students.remove(student);
+    }
+
+    public Student findById(int id) {
+        return students.stream().filter(student -> student.getId() == id).findAny().orElse(null);
+    }
+
     public int size() {
         return students.size();
     }
